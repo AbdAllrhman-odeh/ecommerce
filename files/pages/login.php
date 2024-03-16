@@ -70,14 +70,83 @@
 				</div>
 				<div class="col-lg-6">
 					<div class="login_form_inner">
+						<?php
+							//check input
+							if(isset($_GET['result']))
+							{
+								$result=json_decode($_GET['result'],true);
+								if(isset($result['msgEmpty']))
+								{
+									?>
+									<div class="alert alert-warning" role="alert">
+										<?php echo $result['msgEmpty']; ?>
+									</div>
+									<?php
+								}
+								else if(isset($result['msgIncorrectEmail']))
+								{
+									?>
+									<div class="alert alert-warning" role="alert">
+										<?php echo $result['msgIncorrectEmail']; ?>
+									</div>
+									<?php
+								}
+								else if(isset($result['msgIncorrectPass']))
+								{
+									?>
+									<div class="alert alert-warning" role="alert">
+										<?php echo $result['msgIncorrectPass']; ?>
+									</div>
+									<?php
+								}
+							}
+						?>
 						<h3>Log in to enter</h3>
 						<form class="row login_form" action="loginFunction.php" method="POST" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'email'">
+								<input type="text" class="form-control" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Email'">
 							</div>
+							<!-- check if the email is valid -->
+							<?php
+								if(isset($_GET['result']))
+								{
+									$result=json_decode($_GET['result'],true);
+									if(isset($result['msgInvlidEmail']))
+									{
+										?>
+										<div class="alert alert-warning" role="alert">
+											<?php echo $result['msgInvlidEmail']; ?>
+										</div>
+										<?php
+									}
+									else if(isset($result['msgInvalidEmailFormat']))
+									{
+										?>
+										<div class="alert alert-warning" role="alert">
+											<?php echo $result['msgInvalidEmailFormat']; ?>
+										</div>
+										<?php
+									}
+								}
+							?>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+								<input type="password" class="form-control" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Password'">
 							</div>
+							<!-- check if the password is valid -->
+							<?php
+								if(isset($_GET['result']))
+								{
+									$result=json_decode($_GET['result'],true);
+									if(isset($result['msgInvlidPassword']))
+									{
+										?>
+										<div class="alert alert-warning" role="alert">
+											<?php echo $result['msgInvlidPassword']; ?>
+										</div>
+										<?php
+									}
+								}
+							?>
 							<div class="col-md-12 form-group">
 								<button type="submit" value="submit" class="primary-btn">Log In</button>
 							</div>

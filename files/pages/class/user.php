@@ -27,6 +27,56 @@
                 echo('could not add new user due to: '.$e->getMessage());
             }
         }
+
+        public function checkIfEmailExists($email)
+        {
+            $qurey="SELECT email FROM users where email=:email";
+            try{
+                $stmt=$this->db->prepare($qurey);
+                
+                $stmt->bindParam(':email',$email);
+
+                $stmt->execute();
+
+                $user=$stmt->fetch(PDO::FETCH_ASSOC);
+
+                if(empty($user))
+                return false;
+                
+                return true;
+            }
+            catch(PDOException $e)
+            {
+                echo('cannot search for the user due to: '.$e->getMessage());
+            }
+        }
+
+        public function checkPassword($email,$password)
+        {
+            $query="SELECT * FROM users where email=:email";
+
+            try{
+                $stmt=$this->db->prepare($query);
+
+                $stmt->bindParam(':email',$email);
+
+                $stmt->execute();
+
+                $user=$stmt->fetch(PDO::FETCH_ASSOC);
+
+                if($user)
+                {
+                    if(password_verify($password,$user['password']))
+                    return true;
+
+                    return false;
+                }
+            }
+            catch(PDOException $e)
+            {
+                echo('cannot compare password due to: '.$e->getMessage());
+            }
+        }
     }
 
     // $dbObj=new dataBase();
