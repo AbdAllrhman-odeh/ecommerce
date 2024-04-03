@@ -95,7 +95,7 @@
                         }                               
                         ?>
 						<h3>Give us your info</h3>
-						<form class="row login_form" action="registrationFunction.php" method="POST" id="contactForm" novalidate="novalidate">
+						<form class="row login_form" action="functions/registrationFunction.php" method="POST" id="contactForm" novalidate="novalidate">
                             <div class="col-md-12 form-group">
 								<input type="text" class="form-control"  name="name" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name Please!'">
 							</div>

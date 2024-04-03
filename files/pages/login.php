@@ -102,7 +102,7 @@
 							}
 						?>
 						<h3>Log in to enter</h3>
-						<form class="row login_form" action="loginFunction.php" method="POST" id="contactForm" novalidate="novalidate">
+						<form class="row login_form" action="functions/loginFunction.php" method="POST" id="contactForm" novalidate="novalidate">
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your Email'">
 							</div>

@@ -21,6 +21,8 @@
 	<link rel="stylesheet" href="../public/css/nouislider.min.css">
 	<link rel="stylesheet" href="../public/css/bootstrap.css">
 	<link rel="stylesheet" href="../public/css/main.css">
+	<link rel="stylesheet" href="../public/css/ion.rangeSlider.css" />
+	<link rel="stylesheet" href="../public/css/magnific-popup.css">
 
 </head>
 <body>
@@ -34,6 +36,9 @@
 	<script src="../public/js/nouislider.min.js"></script>
 	<script src="../public/js/jquery.magnific-popup.min.js"></script>
 	<script src="../public/js/owl.carousel.min.js"></script>
+	<!-- <script src="../public/js/countdown.js"></script> -->
+	<script src="../public/js/jquery.magnific-popup.min.js"></script>
+
 	<!--gmaps Js-->
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="../public/js/gmaps.min.js"></script>

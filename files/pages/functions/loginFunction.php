@@ -1,6 +1,6 @@
 <?php
-    require_once('../configration/config.php');
-    require('class/user.php');
+    require_once('../../configration/config.php');
+    require('../class/user.php');
 
     if($_POST)
     {//form submited
@@ -56,7 +56,7 @@
                 if($checkPassword===true)
                 {
                     // correct password
-                    header('Location:dashboard.php');
+                    header('Location:../dashboard.php');
                     exit();
                 }
                 else
@@ -65,7 +65,7 @@
                     $flag=array();
                     $flag['msgIncorrectPass'] = "Incorrect password or email. Please try again.";
                     
-                    header('Location:login.php?result='.(json_encode($flag)).'');
+                    header('Location:../login.php?result='.(json_encode($flag)).'');
                     exit();
                 }
             }
@@ -75,18 +75,18 @@
                 $flag=array();
                 $flag['msgIncorrectEmail'] = "Incorrect email or password. Please try again.";
                 
-                header('Location:login.php?result='.(json_encode($flag)).'');
+                header('Location:../login.php?result='.(json_encode($flag)).'');
                 exit();
             }
         }
         else
         {
             //wrong email || password FORMAT
-            header('Location:login.php?result='.(json_encode($flag)).'');
+            header('Location:../login.php?result='.(json_encode($flag)).'');
             exit();
         }
     }
     //form is not submtied
-    header('Location:login.php');
+    header('Location:../login.php');
     exit();
 ?>

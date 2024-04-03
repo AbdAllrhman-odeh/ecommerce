@@ -1,6 +1,6 @@
 <?php
-    require_once('../configration/config.php');
-    require('class/user.php');
+    require_once('../../configration/config.php');
+    require('../class/user.php');
     if($_POST)
     {
         function validateInput($name,$email,$password)
@@ -55,7 +55,7 @@
                 $flag=array();
                 $flag['msgExistsEmail'] = "This email address is already registered. Please use a different email.";
                 
-                header('Location: registration.php?result='.(json_encode($flag)).'');
+                header('Location:../registration.php?result='.(json_encode($flag)).'');
                 exit();
             }
 
@@ -67,12 +67,12 @@
         {
             //header does not accept an array, just excetp an stirng
             //so we well pass it an json string (key=>value)
-            header('Location:registration.php?result='.(json_encode($flag)).'');
+            header('Location:../registration.php?result='.(json_encode($flag)).'');
             exit();
         }
 
         //form is not submtied yet..
-        header('Location:login.php');
+        header('Location:../login.php');
         exit();
     }
 
